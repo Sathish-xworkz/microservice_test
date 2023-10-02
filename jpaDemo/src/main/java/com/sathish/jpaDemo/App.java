@@ -1,0 +1,85 @@
+package com.sathish.jpaDemo;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import com.sathish.jpaDemo.entity.Product;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+
+		EntityManagerFactory emEntityManagerFactory = Persistence.createEntityManagerFactory("product");
+		EntityManager em = emEntityManagerFactory.createEntityManager();
+
+		// JPQ for retive all products
+
+		/*
+		 * 1 write a q query with respet Entity name 2 Create a Query 3 execute query 4
+		 * display query
+		 */
+
+		// update BY JPQL
+		em.getTransaction().begin();
+//		String updateQuery=" UPDATE Product p  SET p.price=67000 WHERE p.id=10 ";
+//		
+//		// delete JPQL
+//		
+//		Query query= em.createQuery(updateQuery);
+//		int norup= query.executeUpdate();
+//		System.out.println("no record updated.."+norup);
+
+		// delete JPQL
+		String del = "DELETE FROM Product P WHERE P.id=10 ";
+
+		Query query = em.createQuery(del);
+
+		int noredeleted = query.executeUpdate(); // delete/update
+		System.out.println("no deleted.." + noredeleted);
+		em.getTransaction().commit();
+//		String findAll = "Select p from Product p where p.price>50000 ";
+//		
+//		Query query = em.createQuery(findAll);// conver jpql query formate return query to execute methods
+//		List<Product> resProducts = query.getResultList();
+//		System.out.println("Id\t Name \t price");
+//		for (Product res : resProducts) {
+//			System.out.println(res.getId() + "\t" + res.getPname() + "\t" + res.getPrice());
+//		}
+//		System.out.println(resProducts);
+
+//    	em.getTransaction().begin();
+
+//    	 Product p1=new Product(10, "laptop", 21000);
+//    	 
+//    	 em.persist(p1);
+//    	 
+//    	 Product p2=new Product(100, "iphone", 8999);
+//    	 Product p3=new Product(500, "iphone-13", 60999);
+//    	 Product p4=new Product(300, "iphone-14", 70999);
+//    	 
+//    	 em.persist(p2);
+//    	 em.persist(p3);
+//    	 em.persist(p4);
+
+//    	Product upProduct=new Product();
+//    	upProduct.setId(300);
+//    	upProduct.setPname("iphone-14");
+//    	upProduct.setPrice(7000);
+//
+//    	em.merge(upProduct);
+
+		// cast from mysql data to java bject mention class name
+//    	Product ret= em.find(Product.class, 100); // only one value 
+//    	em.remove(ret);
+//    	Product ret1= em.find(Product.class, 100);
+//    	System.out.println(ret1);
+//    	 em.getTransaction().commit();
+	}
+}

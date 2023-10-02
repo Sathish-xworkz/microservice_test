@@ -1,0 +1,5 @@
+package com.sathish.department.model.request.response;
+
+public class DepartmentResponse {
+
+}

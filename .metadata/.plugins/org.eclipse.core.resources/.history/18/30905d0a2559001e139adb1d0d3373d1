@@ -1,0 +1,40 @@
+package com.sathish.employeeservices.service;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import com.sathish.employeeservices.model.APIResponse;
+import com.sathish.employeeservices.model.Employee;
+import com.sathish.employeeservices.model.EmployeeReq;
+import com.sathish.employeeservices.model.EmployeeResp;
+import com.sathish.employeeservices.repository.EmployeeRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class EmployeeServiceImpl implements EmployeeService{
+
+	private EmployeeRepository employeeRepository;
+	private ModelMapper mapper;
+	
+	@Override
+	public EmployeeResp createEmployee(EmployeeReq employeeReq) {
+		// TODO Auto-generated method stub
+		Employee emData=mapper.map(employeeReq, Employee.class);
+		Employee savedEmployee= employeeRepository.save(emData);
+		return mapper.map(savedEmployee, EmployeeResp.class);
+	}
+
+	@Override
+	public EmployeeResp getEmpDeptDat(int id) {
+		// TODO Auto-generated method stub
+		Employee empData= employeeRepository.findById(id).get();
+		return mapper.map(empData, EmployeeResp.class);
+	}
+
+
+
+	
+
+}

@@ -1,0 +1,36 @@
+package com.sathish.jpaDemo;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import com.sathish.jpaDemo.entity.Employee;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// 1 load Persistance unit
+		// 
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("product");
+	     EntityManager em=emf.createEntityManager();
+	     em.getTransaction().begin();
+	     
+	     Employee e1=new Employee(0, "sathish", 10000);
+	     
+	     // save to db using jpa 
+	     
+	     em.persist(e1);
+	     
+	     em.getTransaction().commit();
+	     System.out.println("data stored..");
+	     
+	     
+	     
+	     
+	     
+	}
+
+}

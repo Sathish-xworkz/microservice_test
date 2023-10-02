@@ -1,0 +1,5 @@
+package com.sathish.employeeservices.repository;
+
+public class EmployeeRepository {
+
+}

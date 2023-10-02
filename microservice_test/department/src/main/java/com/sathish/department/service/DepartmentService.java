@@ -1,0 +1,12 @@
+package com.sathish.department.service;
+
+
+import com.sathish.department.model.request.DepartmentRequest;
+import com.sathish.department.model.response.DepartmentResponse;
+
+public interface DepartmentService {
+
+	DepartmentResponse createDepartment(DepartmentRequest departmentRequest);
+
+	DepartmentResponse getDepartmentByDptId(String dptCode);
+}

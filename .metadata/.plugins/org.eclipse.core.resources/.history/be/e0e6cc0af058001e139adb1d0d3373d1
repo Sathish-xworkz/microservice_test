@@ -1,0 +1,15 @@
+package com.sathish.jpaDemo.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "product_inf")
+public class Product {
+
+	private int id;
+	private String pname;
+	private int price;
+	
+	
+}

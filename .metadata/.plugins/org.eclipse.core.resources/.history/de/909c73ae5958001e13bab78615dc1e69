@@ -1,0 +1,31 @@
+package com.xworxz.sathish.employemanagment;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class EmpTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		EntityManagerFactory enManagerFactory= Persistence.createEntityManagerFactory("empDemo");
+	 	EntityManager entityManager= enManagerFactory.createEntityManager();
+	 	
+	 	entityManager.getTransaction().begin();
+	 	Employee emp=new Employee();
+	 	emp.setId(108);
+	 	emp.setDesig("HR");
+	 	emp.setName("Kumar");
+	 	emp.setSalary(20000);
+	 	
+	 	entityManager.persist(emp);
+	 	
+
+	 	entityManager.getTransaction().commit();
+	 	
+	 	
+
+	}
+
+}

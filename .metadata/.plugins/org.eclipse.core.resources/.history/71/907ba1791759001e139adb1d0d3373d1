@@ -1,0 +1,5 @@
+package com.sathish.employeeservices.model;
+
+public class EmployeeResp {
+
+}

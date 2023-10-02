@@ -1,0 +1,10 @@
+package com.sathish.JPA_MAPPING;
+
+public class StudentBookTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

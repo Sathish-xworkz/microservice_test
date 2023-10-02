@@ -1,0 +1,24 @@
+package com.sathish.jpaDemo;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import com.sathish.jpaDemo.entity.Employee;
+import com.sathish.jpaDemo.service.EmployeeService;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+	
+		EmployeeService employeeService=new EmployeeService();
+		
+		Employee e1=new Employee(0, "divya", 2000);
+		
+		employeeService.save(e1);
+	     
+	     
+	     
+	}
+
+}

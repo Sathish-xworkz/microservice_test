@@ -1,0 +1,8 @@
+package com.sathish.employeeservices.service;
+
+import com.sathish.employeeservices.model.EmployeeReq;
+
+public interface EmployeeService {
+
+	EmployeeService  createEmployee(EmployeeReq employeeReq);
+}

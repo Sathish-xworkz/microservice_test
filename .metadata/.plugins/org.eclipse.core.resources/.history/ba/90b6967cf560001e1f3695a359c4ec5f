@@ -1,0 +1,18 @@
+package com.sathish.JPA_MAPPING.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Book {
+
+	@Id
+	private int b_id;
+	private String b_name;
+	private String author;
+	
+	public Book() {
+		// TODO Auto-generated constructor stub
+	}
+	
+}

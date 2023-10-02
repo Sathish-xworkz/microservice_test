@@ -1,0 +1,9 @@
+package com.sathish.employeeservices.model;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class DepartmentResponse {
+	private int id;
+	private String deptName;
+	private String deptCode;
+}

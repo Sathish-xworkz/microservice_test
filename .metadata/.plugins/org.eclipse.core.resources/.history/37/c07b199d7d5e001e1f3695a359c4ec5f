@@ -1,0 +1,41 @@
+package com.sathish.jpaDemo;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import com.sathish.jpaDemo.entity.Employee;
+import com.sathish.jpaDemo.service.EmployeeService;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+	
+		EmployeeService employeeService=new EmployeeService();
+		
+		//Employee e1=new Employee(0, "divya", 2000);
+		
+		// save emp object
+		//employeeService.save(e1);
+		// get one emp object
+//	Employee  res=employeeService.findById(2);
+//	System.out.println(res);
+	     
+		// retive all employee from Db 
+		
+//	List<Employee> empData=	employeeService.getAllEmp();
+//	List<Employee> empData=	employeeService.findBySalary(6000);
+//	List<Employee> empData=	employeeService.findSalBetween(6000,10000);
+//	List<Employee> empData=	employeeService.findSalBetweenRange(4000,10000);
+	
+//	    employeeService.disaplay(empData);
+//		employeeService.employeeCount();
+		
+//		employeeService.sortEmp();
+		employeeService.empValidate(1, "sathish");
+
+	}
+
+}

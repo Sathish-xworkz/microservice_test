@@ -1,0 +1,5 @@
+package com.sathish.department.model.response.copy;
+
+public class DepartmentResponse {
+
+}

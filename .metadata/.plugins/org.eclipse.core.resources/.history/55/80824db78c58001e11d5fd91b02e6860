@@ -1,0 +1,5 @@
+package com.sathish.department.service.impl;
+
+public class DepartmentServiceImpl {
+
+}

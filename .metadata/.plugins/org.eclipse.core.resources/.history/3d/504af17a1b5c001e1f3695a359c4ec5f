@@ -1,0 +1,60 @@
+package com.sathish.jpaDemo;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import com.sathish.jpaDemo.entity.Product;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+
+		EntityManagerFactory emEntityManagerFactory = Persistence.createEntityManagerFactory("product");
+		EntityManager em = emEntityManagerFactory.createEntityManager();
+
+		// JPQ for retive all products
+
+		String findAll = "Select p from Product p";
+		Query query = em.createQuery(findAll);// conver jpql query formate return query to execute methods
+		List<Product> resProducts = query.getResultList();
+
+		for(Product res:resProducts) {
+			System.out.println(res.getId()+"-"+res.getPname()+"-"+res.getPrice());
+		}
+//		System.out.println(resProducts);
+
+//    	em.getTransaction().begin();
+
+//    	 Product p1=new Product(10, "laptop", 21000);
+//    	 
+//    	 em.persist(p1);
+//    	 
+//    	 Product p2=new Product(100, "iphone", 8999);
+//    	 Product p3=new Product(500, "iphone-13", 60999);
+//    	 Product p4=new Product(300, "iphone-14", 70999);
+//    	 
+//    	 em.persist(p2);
+//    	 em.persist(p3);
+//    	 em.persist(p4);
+
+//    	Product upProduct=new Product();
+//    	upProduct.setId(300);
+//    	upProduct.setPname("iphone-14");
+//    	upProduct.setPrice(7000);
+//
+//    	em.merge(upProduct);
+		// cast from mysql data to java bject mention class name
+//    	Product ret= em.find(Product.class, 100); // only one value 
+//    	em.remove(ret);
+//    	Product ret1= em.find(Product.class, 100);
+//    	System.out.println(ret1);
+//    	 em.getTransaction().commit();
+	}
+}

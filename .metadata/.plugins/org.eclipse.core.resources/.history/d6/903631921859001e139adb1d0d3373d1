@@ -1,0 +1,18 @@
+package com.sathish.employeeservices.service;
+
+import com.sathish.employeeservices.model.EmployeeReq;
+import com.sathish.employeeservices.model.EmployeeResp;
+
+public class EmployeeServiceImpl implements EmployeeService{
+
+	@Override
+	public EmployeeResp createEmployee(EmployeeReq employeeReq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	
+
+}

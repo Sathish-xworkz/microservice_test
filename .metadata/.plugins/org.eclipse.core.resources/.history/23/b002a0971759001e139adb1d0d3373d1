@@ -1,0 +1,5 @@
+package com.sathish.employeeservices.service;
+
+public interface EmployeeService {
+
+}

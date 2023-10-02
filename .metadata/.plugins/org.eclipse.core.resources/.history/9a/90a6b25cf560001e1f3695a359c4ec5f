@@ -1,0 +1,5 @@
+package com.sathish.JPA_MAPPING.entity;
+
+public class Book {
+
+}

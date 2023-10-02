@@ -1,0 +1,107 @@
+package com.sathish.jpaDemo.service;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import com.sathish.jpaDemo.entity.Employee;
+
+public class EmployeeService {
+
+	EntityManagerFactory emf = null;
+	EntityManager em = null;
+
+	public EmployeeService() {
+		emf = Persistence.createEntityManagerFactory("product");
+		em = emf.createEntityManager();
+	}
+
+	public void save(Employee emp) {
+		em.getTransaction().begin();
+		em.persist(emp);
+		em.getTransaction().commit();
+		System.out.println(" emp object stored to db");
+	}
+
+	// used for find employe using JPA method
+	public Employee findById(int id) {
+		return em.find(Employee.class, id);
+	}
+
+	// to get all result by JPA => JPQL
+
+	public List<Employee> getAllEmp() {
+		String qr1 = "SELECT E FROM Employee E";
+		Query query = em.createQuery(qr1);
+		List<Employee> empRes = query.getResultList();
+		return empRes;
+//		
+	}
+
+	public List<Employee> findBySalary(int esal) {
+		String salq = "SELECT e FROM Employee e WHERE e.sal>:sal";
+		Query query = em.createQuery(salq);
+		query.setParameter("sal", esal);
+
+		List<Employee> res = query.getResultList();
+		return res;
+	}
+
+	public List<Employee> findSalBetween(int fromSal, int toSal) {
+
+		String qBetween = "SELECT E FROM Employee E WHERE  E.sal>:gsal AND E.sal<=:lsal";
+		Query query = em.createQuery(qBetween);
+		@SuppressWarnings("unchecked")
+		List<Employee> res = query.setParameter("gsal", fromSal).setParameter("lsal", toSal).getResultList();
+		return res;
+	}
+
+	// using positional Param
+	
+	public List<Employee> findSalBetweenRange(int fromSal, int toSal) {
+
+		String qBetween = "SELECT E FROM Employee E WHERE  E.sal>?1 AND E.sal<=?2";
+		Query query = em.createQuery(qBetween);
+		@SuppressWarnings("unchecked")
+		List<Employee> res = query.setParameter(1, fromSal).setParameter(2, toSal).getResultList(); // method chaining
+		return res;
+	}
+	
+	public void  employeeCount() {
+		String cq="SELECT COUNT(E) FROM Employee E";
+		Query query= em.createQuery(cq);
+		System.out.println(query.getSingleResult());
+	}
+	
+	// how to use  named query
+	
+	public void sortEmp() {
+		TypedQuery<Employee> query= em.createNamedQuery("emp.sort",Employee.class);
+		List<Employee> res=	query.getResultList();
+		disaplay( res);
+	}
+	
+	
+	public void empValidate(int eid,String name) {
+		
+	 TypedQuery<Employee> query=em.createNamedQuery("emp.validate", Employee.class);
+	  			query.setParameter(1, eid);
+	  			query.setParameter(2, name);
+	  			
+	  			List<Employee> empRes= query.getResultList();
+	  			System.out.println(empRes);
+	}
+	
+	
+	
+	public void disaplay(List<Employee> emp) {
+		for (Employee e : emp) {
+			System.out.println(e.getId() + "-" + e.getName() + "-" + e.getSal());
+		}
+	}
+
+}

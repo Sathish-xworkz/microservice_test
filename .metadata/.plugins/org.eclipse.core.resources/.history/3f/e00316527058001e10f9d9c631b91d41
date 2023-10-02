@@ -1,0 +1,14 @@
+package com.sathish.employeeservices.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EmpTestController {
+
+	@GetMapping("/emp")
+	public String emp() {
+		String dept="";
+		return " Sathish working with:"+dept;
+	}
+}
