@@ -1,0 +1,25 @@
+package com.sathish.OneToMany;
+
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.sathish.JPA_MAPPING.entity.Book;
+
+@Entity
+@Table(name = "student_info")
+public class Student {
+	@Id
+	private int sid;
+	private String s_name;
+	private String std;
+	
+	@OneToMany
+	@JoinColumn(name = "sidFK")
+	private Set<Book> books;
+
+}
